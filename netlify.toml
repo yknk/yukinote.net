@@ -1,0 +1,18 @@
+[build]
+publish = "_site"
+command = "jekyll build"
+
+[context.production.environment]
+JEKYLL_ENV = "production"
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+Content-Security-Policy = "default-src https:; script-src https: 'unsafe-inline'; style-src https: 'unsafe-inline'"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Strict-Transport-Security = "max-age=15552000"
+X-Content-Type-Options = "nosniff"
+X-Frame-Options = "SAMEORIGIN"
+X-Robots-Tag = "noarchive"
+X-XSS-Protection = "1; mode=block"

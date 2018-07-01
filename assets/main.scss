@@ -1,0 +1,17 @@
+---
+---
+
+@import url(https://fonts.googleapis.com/css?family=Mplus+1p);
+
+$base-font-family: 'Mplus 1p', 'Hiragino Sans', Meiryo, sans-serif;
+
+@import 'minima';
+
+.adsbygoogle {
+  display: block;
+  margin: 0 auto;
+}
+
+.adsbygoogle:not(:empty) {
+  margin-bottom: $spacing-unit;
+}
