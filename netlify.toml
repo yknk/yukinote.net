@@ -11,6 +11,12 @@ to = "https://yukinote-net.netlify.com/:splat"
 status = 301
 force = true
 
+[[redirects]]
+from = "http://yukinote.net/*"
+to = "https://yukinote.net/:splat"
+status = 301
+force = true
+
 [[headers]]
 for = "/*"
 
