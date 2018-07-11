@@ -12,6 +12,16 @@ $on-laptop: 900px;
 
 @import 'minima';
 
+.table-wrap {
+  margin-bottom: $spacing-unit;
+  overflow-x: auto;
+}
+
+.table-wrap table {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
 .adsbygoogle {
   display: block;
   margin: 0 auto;
