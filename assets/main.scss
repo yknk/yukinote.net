@@ -5,6 +5,11 @@
 
 $base-font-family: 'Mplus 1p', 'Hiragino Sans', Meiryo, sans-serif;
 
+$content-width: 900px;
+
+$on-palm: 600px;
+$on-laptop: 900px;
+
 @import 'minima';
 
 .adsbygoogle {
