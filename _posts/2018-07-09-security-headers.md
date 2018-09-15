@@ -1,13 +1,13 @@
 ---
 layout: post
-title: セキュリティー関連のHTTPレスポンスヘッダーのまとめ
-last_modified_at: 2018-07-09
+title: セキュリティ関連のHTTPレスポンスヘッダのまとめ
+last_modified_at: 2018-09-15
 tags:
   - Apache
   - nginx
 ---
 
-Webサーバーで設定しておくべきセキュリティー関連のHTTPレスポンスヘッダーのまとめです。
+Webサーバで設定しておくべきセキュリティ関連のHTTPレスポンスヘッダのまとめです。
 
 ## X-Content-Type-Options
 
@@ -19,7 +19,7 @@ X-Content-Type-Options: nosniff
 
 ## X-Frame-Options
 
-ブラウザーがページをフレームの中に表示することを許可するかどうかの設定です。他のサイトから読み込まれないようにすることで、[クリックジャッキング](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B8%E3%83%A3%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0)攻撃を防ぐことができます。
+ブラウザがページをフレームの中に表示することを許可するかどうかの設定です。他のサイトから読み込まれないようにすることで、[クリックジャッキング](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B8%E3%83%A3%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0)攻撃を防ぐことができます。
 
 * すべてのサイトで埋め込みを許可しない
 
@@ -37,7 +37,7 @@ X-Frame-Options: SAMEORIGIN
 
 ## X-XSS-Protection
 
-ブラウザーにおいて[クロスサイトスクリプティング](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)攻撃を読み込むことを防止するための設定です。
+ブラウザにおいて[クロスサイトスクリプティング](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)攻撃を読み込むことを防止するための設定です。
 
 ```
 X-XSS-Protection: 1; mode=block
@@ -75,11 +75,11 @@ Content-Security-Policy: default-src https:; script-src https: 'unsafe-inline'; 
 
 ## Referrer-Policy
 
-リクエスト時にブラウザーから送られるリファラー情報を制御します。
+リクエスト時にブラウザから送られるリファラ情報を制御します。
 
 * no-referrer
 
-|移動元|移動先|リファラー|
+|移動元|移動先|リファラ|
 |https://example.net/page/|https://example.net/otherpage/|なし|
 |https://example.net/page/|https://**example.com**/|なし|
 |https://example.net/page/|**http**://**example.com**/|なし|
@@ -90,7 +90,7 @@ Referrer-Policy: no-referrer
 
 * same-origin
 
-|移動元|移動先|リファラー|
+|移動元|移動先|リファラ|
 |https://example.net/page/|https://example.net/otherpage/|https://example.net/page/|
 |https://example.net/page/|https://**example.com**/|なし|
 |https://example.net/page/|**http**://**example.com**/|なし|
@@ -101,7 +101,7 @@ Referrer-Policy: same-origin
 
 * strict-origin
 
-|移動元|移動先|リファラー|
+|移動元|移動先|リファラ|
 |https://example.net/page/|https://example.net/otherpage/|https://example.net/|
 |https://example.net/page/|https://**example.com**/|https://example.net/|
 |https://example.net/page/|**http**://**example.com**/|なし|
@@ -112,7 +112,7 @@ Referrer-Policy: strict-origin
 
 * strict-origin-when-cross-origin
 
-|移動元|移動先|リファラー|
+|移動元|移動先|リファラ|
 |https://example.net/page/|https://example.net/otherpage/|https://example.net/page/|
 |https://example.net/page/|https://**example.com**/|https://example.net/|
 |https://example.net/page/|**http**://**example.com**/|なし|
@@ -125,7 +125,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 
 ## Strict-Transport-Security
 
-ブラウザーに対して、次回以降のアクセスでHTTPの代わりにHTTPSを使うように伝達します。
+ブラウザに対して、次回以降のアクセスでHTTPの代わりにHTTPSを使うように伝達します。
 
 ```
 Strict-Transport-Security: max-age=15552000
@@ -159,11 +159,11 @@ add_header Referrer-Policy "strict-origin-when-cross-origin";
 add_header Strict-Transport-Security "max-age=15552000";
 ```
 
-## 設定したレスポンスヘッダーを確認
+## 設定したレスポンスヘッダを確認
 
 [Analyse your HTTP response headers](https://securityheaders.com/)
 
-上のリンクのサイトでレスポンスヘッダーを簡単に確認できます。
+上のリンクのサイトでレスポンスヘッダを簡単に確認できます。
 
 確認したいサイトのアドレスを入力して、「Scan」をクリックすると結果が表示されます。トップページのリストに掲載されたくない場合は、「Hide results」にチェックを付けてからスキャンする必要があります。
 
